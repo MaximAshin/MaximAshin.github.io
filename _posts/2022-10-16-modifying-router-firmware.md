@@ -40,7 +40,7 @@ I decided to digg into the most attractive option - The httpd server, and the we
 
 ## Web Server
 This is the main page you get when you try to access the router:
-<kbd>![Main Page](https://user-images.githubusercontent.com/53023744/196054477-ca2a2870-7fa0-43ce-a4c4-577538c0d536.png)</kbd>
+![Main Page](https://user-images.githubusercontent.com/53023744/196054477-ca2a2870-7fa0-43ce-a4c4-577538c0d536.png)
 
 Shortly, this is what I've tried:
 * Searching for classic command injections in the ping/traceroute/etc interfaces.
