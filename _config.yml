@@ -14,7 +14,6 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Maxim Ashin
-email: maximashin369@gmail.com
 description: "A blog for my cyber needs."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://maximashin.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
