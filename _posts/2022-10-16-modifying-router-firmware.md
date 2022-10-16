@@ -5,8 +5,9 @@ date: 2022-10-16
 categories: exploitation
 ---
 # Preface
-There is a point in a man's (or woman's) life where he wakes up and decides he needs to learn some embedded, or hardware related cyber.
-My friend had an old router collection that he found laying around, and I knew it was the right time.
+There is a point in a man's (or woman's) life where he wakes up and decides that he needs to learn some embedded, or hardware-related cyber.
+For me, it was a friend of mine who told me he had found an old router laying around.
+I knew it was time.
 ![linksys_router](https://user-images.githubusercontent.com/53023744/196064650-137f185d-7708-45a7-8b88-ed1d16f43112.jpg)
 
 
