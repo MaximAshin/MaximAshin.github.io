@@ -5,7 +5,7 @@ date: 2022-10-16
 categories: exploitation
 ---
 
-Hebrew version is available on [Digital Whisper](https://google.com).
+Test [Google](https://google.com).
 
 # Preface
 
