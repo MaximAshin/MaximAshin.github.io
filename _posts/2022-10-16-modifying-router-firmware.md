@@ -135,6 +135,8 @@ Now I ran the `./build-firmware.sh` command and I got a new firmware!
 Let's upload it :)
 
 
+
+
 # Victory
 I went onto the firmware upgrade page, and uploaded the firmware:
 
@@ -143,8 +145,8 @@ I went onto the firmware upgrade page, and uploaded the firmware:
 After a few minutes, I had a screen showing that the upgrade completed successfully!
 I waited for the router to restart.
 
-When I saw the lights on the router stopped blinking, I browsed to the main page.
-As we can see, index.asp looked a little different:
+When I saw that the lights on the router stopped blinking, I browsed to the main page.
+As we can see, index.asp looked a little different (hehe):
 
 ![image](https://user-images.githubusercontent.com/53023744/196062617-0f5bae8f-04d0-4d50-86ed-94cbe260061f.png)
 
@@ -154,4 +156,5 @@ I quickly fired up Metasploit's listener and got a connection:
 ![image](https://user-images.githubusercontent.com/53023744/196055470-b6343f0c-cf0c-4b13-a3a1-dd64ca53b435.png)
 
 
-<h1>I have a bind shell running on the router!</h1>
+I have a bind shell running on the router!
+TBH, It was really fun.
