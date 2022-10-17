@@ -9,7 +9,7 @@ My name is Maxim Ashin.
 I love cyber and anything related to CS or math.
 
 # Why?
-I hope to dump some of my knowledge and though process while exploring new topics.
+I hope to dump some of my knowledge and thought process while exploring new topics.
 Mainly to inspire other readers, all in an enjoyable manner.
 
 # Social
