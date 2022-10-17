@@ -153,13 +153,13 @@ Also, I wanted to leave a final touch on the router's main page before we re-bui
 ![image](https://user-images.githubusercontent.com/53023744/196062658-4e7634b3-6292-4a3c-9a77-87b16b61cfb1.png)
 
 
-Finally, I ran the `./build-firmware.sh` command and got a new firmware.
+Finally, I ran the `./build-firmware.sh` script and got a new firmware.
 Let's upload it :)
 
 
 
 # Victory
-I went onto the firmware upgrade page, and uploaded the firmware:
+I went onto the firmware upgrade page, and uploaded the new firmware:
 
 ![image](https://user-images.githubusercontent.com/53023744/196064210-275cd403-00f7-4c76-bb00-9d7b8945b533.png)
 
