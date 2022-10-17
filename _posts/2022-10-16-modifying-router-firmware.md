@@ -16,8 +16,8 @@ My goal is simple:
 Find an RCE vulnerabillity (post auth), or somehow pop a reverse shell on the router.
 
 
-## Attack Surface
-# NMAP
+# Attack Surface
+### NMAP
 I started with enumerating all of the open ports on the device with `nmap`.
 This is the scan result:
 ```
@@ -40,7 +40,7 @@ After briefly researhing about each of the running services, I couldn't find any
 I decided to digg into the most attractive option - The httpd server, and the web pages it was serving to me.
 
 
-# Web Server
+### Web Server
 This is the main page you get when you try to access the router:
 ![Main Page](https://user-images.githubusercontent.com/53023744/196054477-ca2a2870-7fa0-43ce-a4c4-577538c0d536.png)
 
@@ -55,7 +55,7 @@ Shortly, this is what I've tried:
 	* If the other methods will fail, I'll go with this one.
 
 
-## Firmware & Sources
+# Firmware & Sources
 I have to say, finding the right firmware was a cancerous journey.
 Linksys had taken down many of the previously available firmwares from their site,
 which made searching through the web a little more challenging.
@@ -72,12 +72,12 @@ Luckily enough, I eventually found the right firmware in some [forum](https://fo
 You can dowload it here if the site is down: [WRT160Nv3_0_03_003.zip](https://github.com/MaximAshin/MaximAshin.github.io/files/9795539/WRT160Nv3_0_03_003.zip)
 
 
-## Reversing httpd - TODO!!!!!!!!!!!!!!!!!!!!!!!!!
+# Reversing httpd - TODO!!!!!!!!!!!!!!!!!!!!!!!!!
 Following the article Elon wrote, I tried to reverse the binary and search for dangerous function calls like system(), eval() etc...
 Also, I tried to find mentions of nvram_get() to see if there's any unsanitized user input being used in important places.
 
 
-## Let's Build a Firmware!
+# Let's Build a Firmware!
 After spending a few hours reversing httpd, I thought to myself that I should try re-building the firmware with my own reverse-shell.
 I knew this wasn't any fancy RCE exploit, but a common problem with wacky routers.
 Still, I believe this is a handy trick to learn.
@@ -113,7 +113,7 @@ fmk/rootfs/bin/busybox: ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV)
 
 Now let's get to the step where we build our custom reverse-shell, compiled to 32bit mipsel (mipsel == MIPS little-endian).
 
-# msfvenom
+### msfvenom
 msfvenom is a handy utility that allows us to create (common-use-case) binaries/payloads.
 In my case, I searched for payloads that run on mipsel architecture.
 
@@ -159,7 +159,7 @@ Let's upload it :)
 
 
 
-## Victory
+# Victory
 I went onto the firmware upgrade page, and uploaded the firmware:
 
 ![image](https://user-images.githubusercontent.com/53023744/196064210-275cd403-00f7-4c76-bb00-9d7b8945b533.png)
