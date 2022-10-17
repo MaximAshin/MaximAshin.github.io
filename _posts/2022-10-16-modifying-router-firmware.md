@@ -73,8 +73,8 @@ You can dowload it here if the site is down: [WRT160Nv3_0_03_003.zip](https://gi
 
 
 # Reversing httpd - TODO!!!!!!!!!!!!!!!!!!!!!!!!!
-Following the article Elon wrote, I tried to reverse the binary and search for dangerous function calls like system(), eval() etc...
-Also, I tried to find mentions of nvram_get() to see if there's any unsanitized user input being used in important places.
+Following the [article](https://elongl.github.io/exploitation/2021/05/30/pwning-home-router.html) Elon wrote, I reversed the httpd binary and searched for dangerous function calls like system(), eval() etc...
+Also, I tried to find mentions of nvram_get() (nvram == non volatile ram == stays on the disk) to see if there's any unsanitized user input being used in important places.
 
 
 # Let's Build a Firmware!
