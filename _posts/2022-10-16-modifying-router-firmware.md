@@ -145,7 +145,7 @@ Output:
 fmk/rootfs/usr/sbin/rotatelog.sh
 ```
 
-We can modify the script and run our shell from there!
+We can modify the script and run our binary from there!
 ![image](https://user-images.githubusercontent.com/53023744/196065187-621f4102-1e10-439c-a418-1cf30a08ea7f.png)
 
 
