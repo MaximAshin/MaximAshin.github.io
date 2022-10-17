@@ -46,7 +46,7 @@ This is the main page you get when you try to access the router:
 
 Shortly, this is what I've tried:
 * Searching for classic command injections in the ping/traceroute/etc interfaces.
-	* The httpd server uses fork(), which behind the scenes calls execve().
+	* The httpd server uses fork(), which behind the scenes calls execvp().
 		* How do I know that httpd uses fork()? We'll see later.
 	* This means that we can't inject commands, unless we find a way to manipulate the binaries in our favor (basically a LOLBIN).
 * Looking into Elon Gliksberg's [article](https://elongl.github.io/exploitation/2021/05/30/pwning-home-router.html) about a similar product - Linksys WRT54G.
