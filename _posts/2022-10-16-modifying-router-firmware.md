@@ -36,7 +36,7 @@ PORT      STATE SERVICE VERSION
 Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel, cpe:/h:cisco:dpc3828s
 ```
 
-After briefly researhing about each of the running services, I couldn't find anything interesting or helpful.
+After briefly researching about each of the running services, I couldn't find anything interesting or helpful.
 I decided to digg into the most attractive option - The httpd server, and the web pages it was serving to me.
 
 
