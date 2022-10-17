@@ -179,3 +179,8 @@ I quickly fired up Metasploit's listener and got a connection:
 
 I have a bind shell running on the router!
 TBH, It was really fun.
+
+
+# Additional Sources
+Re-Packing Router's Firmware:
+https://www.youtube.com/watch?v=M3vQmQ4TSa4&ab_channel=CJHackerz
