@@ -17,7 +17,7 @@ Find an RCE vulnerabillity (post auth), or somehow pop a reverse shell on the ro
 
 
 # Attack Surface
-#### NMAP
+### **NMAP**
 I started with enumerating all of the open ports on the device with `nmap`.
 This is the scan result:
 ```
@@ -40,7 +40,7 @@ After briefly researhing about each of the running services, I couldn't find any
 I decided to digg into the most attractive option - The httpd server, and the web pages it was serving to me.
 
 
-#### Web Server
+### **Web Server**
 This is the main page you get when you try to access the router:
 ![Main Page](https://user-images.githubusercontent.com/53023744/196054477-ca2a2870-7fa0-43ce-a4c4-577538c0d536.png)
 
@@ -113,7 +113,7 @@ fmk/rootfs/bin/busybox: ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV)
 
 Now let's get to the step where we build our custom reverse-shell, compiled to 32bit mipsel (mipsel == MIPS little-endian).
 
-#### msfvenom
+### **msfvenom**
 msfvenom is a handy utility that allows us to create (common-use-case) binaries/payloads.
 In my case, I searched for payloads that run on mipsel architecture.
 
