@@ -182,5 +182,4 @@ TBH, It was really fun.
 
 
 # Additional Sources
-Re-Packing Router's Firmware:
-https://www.youtube.com/watch?v=M3vQmQ4TSa4&ab_channel=CJHackerz
+[Re-Packing Router's Firmware](https://www.youtube.com/watch?v=M3vQmQ4TSa4&ab_channel=CJHackerz)
